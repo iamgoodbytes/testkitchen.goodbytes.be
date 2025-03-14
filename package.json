@@ -1,0 +1,17 @@
+{
+  "name": "11ty.goodbytes.be",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npx @11ty/eleventy --serve --formats=md,webp,jpg,jpeg,gif,svg",
+    "build": "npx @11ty/eleventy --formats=md,webp,jpg,jpeg,gif,svg"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@11ty/eleventy": "^3.0.0"
+  }
+}
