@@ -1,0 +1,34 @@
+:root {
+    /* Brutalist font stack - emphasizing monospace and system fonts */
+    --font-stack-brutal: "Space Mono",
+                        "Roboto Mono",
+                        "Courier New",
+                        ui-monospace,
+                        SFMono-Regular,
+                        "IBM Plex Mono",
+                        monospace;
+}
+
+body {
+    background-color: #191919;
+    color: rgb(231, 225, 225);
+}
+
+.books {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.book {
+    flex: 0 0 200px;
+}
+
+.book img {
+    max-width: 100%;
+}
+
+h1, h2, h3 {
+    font-family: var(--font-stack-brutal-sans);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}

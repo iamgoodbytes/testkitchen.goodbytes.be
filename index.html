@@ -2,10 +2,22 @@
 layout: layout.html
 ---
 
+<h2>Experiments</h2>
 <div class="experiments">
-    <article class="experiment">
+    
         {% for experiment in collections.experiment %}
-             <h2><a href="{{ experiment.url }}"><img src="{{ experiment.data.cover }}" alt="">{{ experiment.data.title }}</a></h2>   
+        <article class="experiment"></article>
+             <a href="{{ experiment.url }}"><img src="{{ experiment.data.cover }}" alt="{{ experiment.data.title }}"></a>
+        </article>
         {% endfor %}
+    
+</div>
+
+<h2>Books</h2>
+<div class="books">
+    {% for book in collections.book %}
+    <article class="book">
+             <a href="{{ book.url }}"><img src="{{ book.data.cover }}" alt="{{ book.data.title }}"></a>
     </article>
+    {% endfor %}
 </div>

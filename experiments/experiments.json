@@ -1,4 +1,4 @@
 {
-    "layout": "layout.html",
+    "layout": "/experiments/entry.html",
     "tags": "experiment"
 }
