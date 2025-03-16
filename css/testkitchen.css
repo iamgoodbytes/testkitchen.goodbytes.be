@@ -1,17 +1,87 @@
 :root {
     /* Brutalist font stack - emphasizing monospace and system fonts */
-    --font-stack-brutal: "Space Mono",
-                        "Roboto Mono",
-                        "Courier New",
-                        ui-monospace,
-                        SFMono-Regular,
-                        "IBM Plex Mono",
-                        monospace;
+    --font-stack-brutal: "Unbounded", sans-serif;
+
+    /* Type Scale - 1.25 ratio */
+    --text-micro:   0.41em;
+    --text-tiny:    0.512em;
+    --text-small:   0.64em;
+    --text-reduced: 0.8em;
+    --text-base:    1em;
+    --text-large:   1.25em;
+    --text-huge:    1.563em;
+    --text-giant:   1.953em;
+    --text-mega:    2.441em;
+    --text-ultra:   3.052em;    
+
+    /* Black shades - from lightest to darkest */
+    --black-100: rgb(100, 100, 100);  /* subtle */
+    --black-300: rgb(50, 50, 50);     /* medium */
+    --black-500: rgb(25, 25, 25);     /* default */
+    --black-700: rgb(10, 10, 10);     /* your base */
+    --black-900: rgb(5, 5, 5);        /* intense */
+
+    --color-red: #FF1C00;
+    --color-yellow: #FFD700;
+    --color-pink: #FF0098;
+    --color-pink-light: #D8D8D8;
+    --color-blue: #50E3C2;
+    --color-offblack: #191919;
+    --color-bluelink: #020e78;
+}
+
+h1, h2, h3, h4 {
+    text-transform: uppercase;
+    font-family:var(--font-stack-brutal);
+    letter-spacing: -0.05em;
+}
+
+h1 {
+    font-size: var(--text-ultra);
+    margin-top: 0;
+    font-weight: normal;
+}
+
+h1 strong {
+    font-weight: bold;
+}
+
+h1 span {
+    font-weight: normal;
+}
+
+h1 em {
+    font-size: var(--text-reduced)
+}
+
+h2 {
+    font-size: var(--text-base);
+    letter-spacing: 0;
+    font-weight: normal;
+    color: var(--black-500);
 }
 
 body {
-    background-color: #191919;
-    color: rgb(231, 225, 225);
+    background-color: #ffffff;
+    color: var(--black-700);
+}
+
+.experiments {
+
+}
+
+.experiment {
+
+}
+
+.experiment img {
+    filter: grayscale(100%);
+    transition: all 0.25s ease-in-out;
+}
+
+.experiment img:hover {
+    filter: grayscale(0%);
+    mix-blend-mode: normal;
 }
 
 .books {
@@ -20,15 +90,10 @@ body {
 }
 
 .book {
-    flex: 0 0 200px;
+    flex: 0 0 120px;
 }
 
 .book img {
     max-width: 100%;
 }
 
-h1, h2, h3 {
-    font-family: var(--font-stack-brutal-sans);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}

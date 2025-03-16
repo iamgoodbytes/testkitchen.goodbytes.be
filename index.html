@@ -3,10 +3,9 @@ layout: layout.html
 ---
 
 <h2>Experiments</h2>
-<div class="experiments">
-    
+<div class="experiments"> 
         {% for experiment in collections.experiment %}
-        <article class="experiment"></article>
+        <article class="experiment">
              <a href="{{ experiment.url }}"><img src="{{ experiment.data.cover }}" alt="{{ experiment.data.title }}"></a>
         </article>
         {% endfor %}

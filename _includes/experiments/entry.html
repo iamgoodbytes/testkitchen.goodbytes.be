@@ -3,3 +3,7 @@ layout: layout.html
 ---
 <h2>{{ title }}</h2>
 {{content}}
+
+{% if url_live %}
+  <a href="{{ url_live }}" target="_blank">View Live</a>
+{% endif %}
