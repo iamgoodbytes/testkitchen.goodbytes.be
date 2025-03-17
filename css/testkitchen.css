@@ -37,6 +37,10 @@ body {
     font-family:var(--font-stack-brutal);
 }
 
+img {
+    max-width: 100%;
+}
+
 h1, h2, h3, h4 {
     text-transform: uppercase;
     font-family:var(--font-stack-brutal);
@@ -97,7 +101,6 @@ body {
 
 /* Add overlay with blend mode */
 .experiment--entry::before {
-    
     content: '';
     position: absolute;
     inset: 0;
@@ -122,6 +125,10 @@ body {
 .experiment--entry > * {
     position: relative;
     z-index: 2;
+}
+
+.experiment--entry figure {
+    
 }
 
 .experiment img {
