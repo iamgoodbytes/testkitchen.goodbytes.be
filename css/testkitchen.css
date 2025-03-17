@@ -21,6 +21,8 @@
     --black-700: rgb(10, 10, 10);     /* your base */
     --black-900: rgb(5, 5, 5);        /* intense */
 
+    
+
     --color-red: #FF1C00;
     --color-yellow: #FFD700;
     --color-pink: #FF0098;
@@ -30,16 +32,26 @@
     --color-bluelink: #020e78;
 }
 
+body {
+    padding: 1em;
+    font-family:var(--font-stack-brutal);
+}
+
 h1, h2, h3, h4 {
     text-transform: uppercase;
     font-family:var(--font-stack-brutal);
     letter-spacing: -0.05em;
 }
 
+p {
+    
+}
+
 h1 {
     font-size: var(--text-ultra);
     margin-top: 0;
     font-weight: normal;
+    text-align: justify;
 }
 
 h1 strong {
@@ -51,7 +63,7 @@ h1 span {
 }
 
 h1 em {
-    font-size: var(--text-reduced)
+    font-size: var(--text-small)
 }
 
 h2 {
@@ -72,6 +84,44 @@ body {
 
 .experiment {
 
+}
+
+.experiment--entry {
+    position: relative;
+    padding: 2em;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    color: white;
+}
+
+/* Add overlay with blend mode */
+.experiment--entry::before {
+    
+    content: '';
+    position: absolute;
+    inset: 0;
+    mix-blend-mode: difference;
+    background-color: rgba(255, 255, 255, 0.95);
+    z-index: 1;
+}
+
+/* Add backdrop filters */
+.experiment--entry::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    backdrop-filter: 
+        grayscale(100%)
+        contrast(1.0)
+        brightness(1.2);
+    z-index: 0;
+}
+
+/* Keep content above effects */
+.experiment--entry > * {
+    position: relative;
+    z-index: 2;
 }
 
 .experiment img {

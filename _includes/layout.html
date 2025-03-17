@@ -7,12 +7,10 @@
     <link href="https://fonts.cdnfonts.com/css/unbounded" rel="stylesheet">
     <link rel="stylesheet" href="/css/testkitchen.css">
 </head>
-<body>
-    <h1>
-        <strong>test kitchen</strong> /tɛst ˈkɪtʃɪn <em>noun</em>
-        <strong>:A kitchen in which <span>[&hellip;]</span> products are tested and developed before being released to the public. That sounds about right.</strong>
+<body class="page--{{ pagetype | default: 'index' }}">
+    <h1>{{ title | default: "<strong>test kitchen</strong> /tɛst ˈkɪtʃɪn <em>noun</em>
+        <span>:A kitchen in which [&hellip;] products are tested and developed before being released to the public. Oui chef!</span>" }}
     </h1>
-    
     {{ content }}
 </body>
 </html>
