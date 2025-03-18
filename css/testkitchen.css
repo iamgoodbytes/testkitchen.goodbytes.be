@@ -154,3 +154,8 @@ body {
     max-width: 100%;
 }
 
+@media(max-width: 600px) {
+    h1 {
+        font-size: var(--text-huge);
+    }
+}

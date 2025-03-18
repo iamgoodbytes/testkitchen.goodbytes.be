@@ -3,22 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GoodBytes — Test Kitchen</title>
+    <title>GoodBytes' tɛst kɪtʃɪn</title>
     <link href="https://fonts.cdnfonts.com/css/unbounded" rel="stylesheet">
     <link rel="stylesheet" href="/css/testkitchen.css">
 
-    {% if id %}
+    {% if id and pagetype == 'experiment' %}
     {% assign og_url = "https://testkitchen.goodbytes.be/experiments/" | append: id | append: "/img/" | append: id | append: "_og.jpg" %}
     {% else %}
-    {% assign og_url = "https://testkitchen.goodytes.be/default/image.jpg" %}
+    {% assign og_url = "https://testkitchen.goodytes.be/images/og.jpg" %}
     {% endif %}
 
-    <meta property="og:title" content="{{ title | default: "Oui Chef" }} — tɛst kɪtʃɪn @GoodBytes" />
+    <meta property="og:title" content="{{ title | default: "Oui Chef" }} — GoodBytes' tɛst kɪtʃɪn" />
     <meta property="og:image" content="" />
 
 </head>
 <body class="page--{{ pagetype | default: 'index' }}">
-    {{ og_url }}
+    
     
     <h1>{{ title | default: "<strong>test kitchen</strong> /tɛst ˈkɪtʃɪn <em>noun</em>
         <span>:A kitchen in which [&hellip;] products are tested and developed before being released to the public. Oui chef!</span>" }}
