@@ -1,6 +1,7 @@
 :root {
     /* Brutalist font stack - emphasizing monospace and system fonts */
     --font-stack-brutal: "Unbounded", sans-serif;
+    --font-stack-body: "Space Grotesk", system-ui, sans-serif;
 
     /* Type Scale - 1.25 ratio */
     --text-micro:   0.41em;
@@ -34,7 +35,7 @@
 
 body {
     padding: 1em;
-    font-family:var(--font-stack-brutal);
+    font-family:var(--font-stack-body);
 }
 
 img {
@@ -47,15 +48,25 @@ h1, h2, h3, h4 {
     letter-spacing: -0.05em;
 }
 
+h2, h3, h4 {
+    margin-top: 2em;
+}
+
 p {
-    
+    color: var(--black-300);
+    font-weight: normal;
 }
 
 h1 {
     font-size: var(--text-ultra);
     margin-top: 0;
     font-weight: normal;
+    
     text-align: justify;
+    text-justify: inter-word;    /* Better word spacing */
+    hyphens: none;              /* Enable automatic hyphenation */
+    overflow-wrap: break-word;  /* Prevent overflow */
+    word-break: normal;
 }
 
 h1 strong {
@@ -128,7 +139,7 @@ body {
 }
 
 .experiment--entry figure {
-    
+    margin: 0;
 }
 
 .experiment img {

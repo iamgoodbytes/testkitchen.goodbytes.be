@@ -5,12 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GoodBytes' tɛst kɪtʃɪn</title>
     <link href="https://fonts.cdnfonts.com/css/unbounded" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/space-grotesk" rel="stylesheet">
     <link rel="stylesheet" href="/css/testkitchen.css">
 
     {% if id and pagetype == 'experiment' %}
-    {% assign og_url = "https://testkitchen.goodbytes.be/experiments/" | append: id | append: "/img/" | append: id | append: "_og.jpg" %}
+        {% assign og_url = "https://testkitchen.goodbytes.be/experiments/" | append: id | append: "/img/" | append: id | append: "_og.jpg" %}
+        {% assign title = "<a href='/'>&larr; oui chef</a>" %}
     {% else %}
-    {% assign og_url = "https://testkitchen.goodytes.be/images/og.jpg" %}
+        {% assign og_url = "https://testkitchen.goodytes.be/images/og.jpg" %}
+        {% assign title = "<strong>test kitchen</strong> /tɛst ˈkɪtʃɪn <em>noun:</em>
+        <span>A kitchen in which [&hellip;] products are tested and developed before being released to the public. Oui chef!</span>" %}
     {% endif %}
 
     <meta property="og:title" content="{{ title | default: "Oui Chef" }} — GoodBytes' tɛst kɪtʃɪn" />
@@ -19,10 +23,7 @@
 </head>
 <body class="page--{{ pagetype | default: 'index' }}">
     
-    
-    <h1>{{ title | default: "<strong>test kitchen</strong> /tɛst ˈkɪtʃɪn <em>noun</em>
-        <span>:A kitchen in which [&hellip;] products are tested and developed before being released to the public. Oui chef!</span>" }}
-    </h1>
+    <h1>{{ title }}</h1>
     {{ content }}
 </body>
 </html>
