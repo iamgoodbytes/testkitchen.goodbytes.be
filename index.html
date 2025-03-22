@@ -6,7 +6,7 @@ layout: layout.html
 <div class="experiments"> 
         {% for experiment in collections.experiment %}
         <article class="experiment">
-             <a href="{{ experiment.url }}"><img src="/experiments/{{ experiment.data.id }}/img/{{ experiment.data.id }}_small.webp" alt="{{ experiment.data.title }}"></a>
+             <a href="{{ experiment.url }}"><img src="/experiments/images/{{ experiment.data.id }}_small.webp" alt="{{ experiment.data.title }}"></a>
         </article>
         {% endfor %}
     
