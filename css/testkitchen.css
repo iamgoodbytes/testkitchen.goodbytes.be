@@ -54,6 +54,7 @@ body {
     font-family:var(--font-stack-body);
     background-color: var(--color-offwhite);
     color: var(--black-700);
+    font-size: calc(0.5vw + 1em);
 }
 
 img {
@@ -82,7 +83,7 @@ p {
 }
 
 h1 {
-    font-size: var(--text-ultra);
+    font-size: var(--text-giant);
     margin-top: 0;
     font-weight: normal;
     text-align: justify;
@@ -99,7 +100,7 @@ h1.subtitle strong {
 
 h1 strong {
     font-weight: bold;
-    font-size: calc(100vw / 10); /* Adjust the divisor to fit your needs */
+    font-size: var(--text-mega); /* Adjust the divisor to fit your needs */
     text-align: justify;
     display: flex;
     width: 50%;
@@ -201,7 +202,7 @@ h2 {
 .experiment--entry figure {
     margin: 0;
     text-align: center;
-    padding-bottom: 4em;
+    padding-bottom: var(--space-giant);
 }
 
 .experiment--entry img {
@@ -224,7 +225,18 @@ h2 {
     padding: var(--space-giant) 0;
 }
 
+.grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+}
 
+.grid .col1 {
+    grid-column: 1 / -1;
+}
+
+.grid .col2 {
+    grid-column: 3 / span 8;
+}
 
 .actions a {
     color: var(--color-red);
@@ -233,7 +245,7 @@ h2 {
 }
 
 .actions--navigate {
-    padding-top: var(--space-giant);
+    padding: var(--space-ultra) 0;
 }
 
 .actions--navigate nav {
@@ -242,25 +254,55 @@ h2 {
     font-size: var(--text-monster);
 }
 
-.books {
-    display: flex;
-    flex-wrap: wrap;
+.music-pairing {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1em;
+    justify-content: space-around;
+    border-top: 1px solid var(--black-100);
+    padding-top: var(--space-giant);
+    border-bottom: 1px solid var(--black-100);
+    padding-bottom: var(--space-giant);
+
 }
 
-.book {
-    flex: 0 0 120px;
+.credits {
+    position: fixed;
+    bottom: 1em;
+    right: 1em;
 }
 
-.book img {
-    max-width: 100%;
+.credits__avatar {
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
+    margin-right: 0.5em;
 }
 
-@media(max-width: 600px) {
-    h1 {
-        font-size: var(--text-huge);
-    }
+.credits__text {
+    font-size: 0.7em;
+    display: inline-block;
+    vertical-align: middle;
+    position: absolute;
+    left: -12em;
+    width: 12em;
+    padding: 0.2em;
+    background-color: rgba(255, 255, 255, 0.95);   
+    margin: 0;
+    opacity: 0;
 }
- 
+
+.credits__avatar:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s;
+}
+
+.credits a:hover ~ .credits__text {
+    opacity: 1;
+    transition: opacity 0.3s;
+}
+
+
 
 @media not (prefers-reduced-motion: reduce) {
 

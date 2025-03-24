@@ -17,14 +17,14 @@ layout: layout.html
 </main>
 
 <section class="experiment--details">
-  {{content}}
-
-      
-
+  
   {% if spotify_pairing %}
-    <h3>Music pairing</h3>
+  <div class="music-pairing">
+    
     <p>The demo above tastes better when acommpanied with the following track.</p>
     <iframe id="spotify-iframe"></iframe>
+  </div>  
+
     <script src="https://open.spotify.com/embed/iframe-api/v1" async></script>
     <script>
       window.onSpotifyIframeApiReady = (IFrameAPI) => {
@@ -44,6 +44,18 @@ layout: layout.html
       };
     </script>
   {% endif %}
+
+  <div class="experiment--content grid">
+    <div class="col1">
+      <h3>What's this</h3>
+      <p></p>    
+    </div>
+    <div class="col2">{{ content }}</div>
+  </div>
+
+      
+
+  
 </section>
 
 
@@ -53,13 +65,8 @@ layout: layout.html
   {% assign nextPost = collections.experiment | getNextCollectionItem %}
   {% if previousPost or nextPost %}
     <nav>
-      {% if previousPost %}
-        <div><a href="{{ previousPost.url }}">← prev</a></div>
-      {% endif %}
-      
-      {% if nextPost %}
-        <div><a href="{{ nextPost.url }}">next →</a></div>
-      {% endif %}
+        <div>{% if previousPost %}<a href="{{ previousPost.url }}">← prev</a>{% endif %}</div>
+        <div>{% if nextPost %}<a href="{{ nextPost.url }}">next →</a>{% endif %}</div>
     </nav>
   {% endif %}
 </div>
