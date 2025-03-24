@@ -6,19 +6,20 @@ layout: layout.html
 <div class="experiments"> 
         {% for experiment in collections.experiment %}
         <article class="experiment">
-             <a href="{{ experiment.url }}"><img src="/experiments/images/{{ experiment.data.id }}_small.webp" alt="{{ experiment.data.title }}"></a>
+             <a href="{{ experiment.url }}"><img class="" src="/experiments/images/{{ experiment.data.id }}_small.webp" alt="{{ experiment.data.title }}"></a>
         </article>
         {% endfor %}
     
 </div>
 
-<!--
-<h2>Books</h2>
-<div class="books">
-    {% for book in collections.book %}
-    <article class="book">
-             <a href="{{ book.url }}"><img src="{{ book.data.cover }}" alt="{{ book.data.title }}"></a>
-    </article>
-    {% endfor %}
-</div>
--->
+
+
+
+<script>    
+    document.querySelectorAll('.experiment img').forEach(img => {
+        img.addEventListener('click', function() {
+            document.querySelectorAll('.experiment img').forEach(i => i.classList.remove('transition-experiment-img'));
+            this.classList.add('transition-experiment-img');
+        });
+    });
+</script>

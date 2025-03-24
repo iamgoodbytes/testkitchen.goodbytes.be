@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 :root {
     /* Brutalist font stack - emphasizing monospace and system fonts */
     --font-stack-brutal: "Unbounded", sans-serif;
@@ -14,6 +18,7 @@
     --text-giant:   1.953em;
     --text-mega:    2.441em;
     --text-ultra:   3.052em;    
+    --text-monster: calc(100vw / 10);
 
     /* Black shades - from lightest to darkest */
     --black-100: rgb(100, 100, 100);  /* subtle */
@@ -22,8 +27,6 @@
     --black-700: rgb(10, 10, 10);     /* your base */
     --black-900: rgb(5, 5, 5);        /* intense */
 
-    
-
     --color-red: #FF1C00;
     --color-yellow: #FFD700;
     --color-pink: #FF0098;
@@ -31,11 +34,26 @@
     --color-blue: #50E3C2;
     --color-offblack: #191919;
     --color-bluelink: #020e78;
+    --color-offwhite: #f6f6f6;
+
+    
+    --space-micro:   0.32em;
+    --space-tiny:    0.4em;
+    --space-small:   0.5em;
+    --space-reduced: 0.625em;
+    --space-base:    1em;
+    --space-large:   1.25em;
+    --space-huge:    1.563em;
+    --space-giant:   1.953em;
+    --space-mega:    2.441em;
+    --space-ultra:   3.052em;
 }
 
 body {
     padding: 1em;
     font-family:var(--font-stack-body);
+    background-color: var(--color-offwhite);
+    color: var(--black-700);
 }
 
 img {
@@ -49,29 +67,47 @@ h1, h2, h3, h4 {
 }
 
 h2, h3, h4 {
-    margin-top: 2em;
+    margin-top: var(--space-giant);
+}
+
+a {
+    color: var(--color-red);
+    text-decoration: none;
 }
 
 p {
-    color: var(--black-300);
+    color: var(--black-100);
     font-weight: normal;
+    font-size: var(--text-large);
 }
 
 h1 {
     font-size: var(--text-ultra);
     margin-top: 0;
     font-weight: normal;
-    
     text-align: justify;
     text-justify: inter-word;    /* Better word spacing */
     hyphens: none;              /* Enable automatic hyphenation */
     overflow-wrap: break-word;  /* Prevent overflow */
     word-break: normal;
+    margin-bottom: var(--space-base);
+}
+
+h1.subtitle strong {
+    font-size: var(--text-giant);
 }
 
 h1 strong {
     font-weight: bold;
+    font-size: calc(100vw / 10); /* Adjust the divisor to fit your needs */
+    text-align: justify;
+    display: flex;
+    width: 50%;
+    letter-spacing: -0.1em;
+    line-height: 0.8;
+    margin: var(--space-reduced) 0;
 }
+
 
 h1 span {
     font-weight: normal;
@@ -85,20 +121,24 @@ h2 {
     font-size: var(--text-base);
     letter-spacing: 0;
     font-weight: normal;
-    color: var(--black-500);
+    color: var(--black-100);
 }
 
-body {
-    background-color: #ffffff;
-    color: var(--black-700);
-}
 
 .experiments {
-
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1em;
+    margin-top: var(--space-giant);
+    justify-content: space-around;
 }
 
 .experiment {
 
+}
+
+.experiment img {
+    width: 100%;
 }
 
 .experiment--entry {
@@ -108,6 +148,7 @@ body {
     background-size: cover;
     background-position: center center;
     color: white;
+    
 }
 
 /* Add overlay with blend mode */
@@ -138,8 +179,35 @@ body {
     z-index: 2;
 }
 
+.page--experiment a.link--live {
+    color: var(--color-red);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: var(--text-huge);
+    position: absolute;
+    bottom: 0em;
+    right: 0em;
+    background-color: var(--color-offwhite);
+    padding: 0.5em 1em;
+
+}
+
+.experiment--entry h3 {
+    mix-blend-mode: difference;
+    text-align: center;
+    font-size: var(--text-giant);
+}
+
 .experiment--entry figure {
     margin: 0;
+    text-align: center;
+    padding-bottom: 4em;
+}
+
+.experiment--entry img {
+    padding: 0.3em;
+    background-color: var(--color-offwhite);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .experiment img {
@@ -150,6 +218,28 @@ body {
 .experiment img:hover {
     filter: grayscale(0%);
     mix-blend-mode: normal;
+}
+
+.experiment--details {
+    padding: var(--space-giant) 0;
+}
+
+
+
+.actions a {
+    color: var(--color-red);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.actions--navigate {
+    padding-top: var(--space-giant);
+}
+
+.actions--navigate nav {
+    display: flex;
+    justify-content: space-between;
+    font-size: var(--text-monster);
 }
 
 .books {
@@ -168,5 +258,22 @@ body {
 @media(max-width: 600px) {
     h1 {
         font-size: var(--text-huge);
+    }
+}
+ 
+
+@media not (prefers-reduced-motion: reduce) {
+
+    .title {
+        view-transition-name: title;
+    }
+
+    .transition-experiment-img {
+        view-transition-name: transition-experiment-img;
+        
+    }
+
+    @view-transition {
+        navigation: auto;
     }
 }

@@ -10,11 +10,8 @@
 
     {% if id and pagetype == 'experiment' %}
         {% assign og_url = "https://testkitchen.goodbytes.be/experiments/" | append: id | append: "/img/" | append: id | append: "_og.jpg" %}
-        {% assign title = "<a href='/'>&larr; oui chef</a>" %}
     {% else %}
         {% assign og_url = "https://testkitchen.goodytes.be/images/og.jpg" %}
-        {% assign title = "<strong>test kitchen</strong> /tɛst ˈkɪtʃɪn <em>noun:</em>
-        <span>A kitchen in which [&hellip;] products are tested and developed before being released to the public. Oui chef!</span>" %}
     {% endif %}
 
     <meta property="og:title" content="{{ title | default: "Oui Chef" }} — GoodBytes' tɛst kɪtʃɪn" />
@@ -23,7 +20,18 @@
 </head>
 <body class="page--{{ pagetype | default: 'index' }}">
     
-    <h1>{{ title }}</h1>
+    {% if not pagetype %}
+    <h1 class="title">
+        <strong><a href="/">tɛst kitch&#643;n</a></strong> 
+        <div>
+            <em>noun</em>
+            <span> — A kitchen in which [&hellip;] products are tested and developed before being released to the public. Oui chef!</span>
+        </div>
+    </h1>
+    {% else %}
+         <h1 class="title subtitle"><strong><a href="/">tɛst kitch&#643;n</a></strong></h1>
+    {% endif %}
+    
     {{ content }}
 </body>
 </html>

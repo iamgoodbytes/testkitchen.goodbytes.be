@@ -7,13 +7,19 @@ layout: layout.html
   <h3>{{ title }}</h3>
 
   <figure>
-    <img src="/experiments/images/{{ id }}_large.webp" alt="{{ title }}">
-    <figcaption>{{title}}</figcaption>
+    <img class="transition-experiment-img" src="/experiments/images/{{ id }}_large.webp" alt="{{ title }}">
+    <figcaption>
+       {% if url_live %}
+        <a class="link--live" href="{{ url_live }}" target="_blank">Taste a live demo</a>
+       {% endif %}
+    </figcaption>
   </figure>
 </main>
 
 <section class="experiment--details">
   {{content}}
+
+      
 
   {% if spotify_pairing %}
     <h3>Music pairing</h3>
@@ -42,8 +48,18 @@ layout: layout.html
 
 
 
-<div class="actions">
-  {% if url_live %}
-    <a href="{{ url_live }}" target="_blank">View Live</a>
+<div class="actions actions--navigate">
+  {% assign previousPost = collections.experiment | getPreviousCollectionItem %}
+  {% assign nextPost = collections.experiment | getNextCollectionItem %}
+  {% if previousPost or nextPost %}
+    <nav>
+      {% if previousPost %}
+        <div><a href="{{ previousPost.url }}">← prev</a></div>
+      {% endif %}
+      
+      {% if nextPost %}
+        <div><a href="{{ nextPost.url }}">next →</a></div>
+      {% endif %}
+    </nav>
   {% endif %}
 </div>
