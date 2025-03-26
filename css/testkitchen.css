@@ -180,18 +180,19 @@ h2 {
     z-index: 2;
 }
 
-.page--experiment a.link--live {
-    color: var(--color-red);
+.experiment--entry a.link--live {
     text-decoration: none;
     font-weight: bold;
-    font-size: var(--text-huge);
+    font-size: var(--text-reduced);
     position: absolute;
     bottom: 0em;
     right: 0em;
-    background-color: var(--color-offwhite);
+    background-color: var(--color-red);
+    color: var(--color-offwhite);
     padding: 0.5em 1em;
-
+    border-radius: 0.5em;
 }
+
 
 .experiment--entry h3 {
     mix-blend-mode: difference;
@@ -202,7 +203,7 @@ h2 {
 .experiment--entry figure {
     margin: 0;
     text-align: center;
-    padding-bottom: var(--space-giant);
+    padding-bottom: 5em;
 }
 
 .experiment--entry img {
@@ -267,10 +268,12 @@ h2 {
     padding-top: var(--space-giant);
     border-bottom: 1px solid var(--black-100);
     padding-bottom: var(--space-giant);
+    align-items: center;
 }
 
 .music-pairing h4 {
     margin-top: 0;
+    margin-bottom: 0;
 }
 
 .credits {

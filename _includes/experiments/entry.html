@@ -9,11 +9,15 @@ layout: layout.html
   <figure>
     <img class="transition-experiment-img" src="/experiments/images/{{ id }}_large.webp" alt="{{ title }}">
     <figcaption>
-       {% if url_live %}
-        <a class="link--live" href="{{ url_live }}" target="_blank">Taste a live demo</a>
-       {% endif %}
+       
     </figcaption>
+
+    {% if url_live %}
+        <a class="link--live" href="{{ url_live }}" target="_blank">Taste a live demo</a>
+    {% endif %}
   </figure>
+
+  
 </main>
 
 <section class="experiment--details">
