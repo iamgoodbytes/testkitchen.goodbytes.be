@@ -83,10 +83,10 @@ p {
 }
 
 h1 {
-    font-size: var(--text-giant);
+    font-size: var(--text-huge);
     margin-top: 0;
     font-weight: normal;
-    text-align: justify;
+    text-align: center;
     text-justify: inter-word;    /* Better word spacing */
     hyphens: none;              /* Enable automatic hyphenation */
     overflow-wrap: break-word;  /* Prevent overflow */
@@ -95,17 +95,17 @@ h1 {
 }
 
 h1.subtitle strong {
-    font-size: var(--text-giant);
+    font-size: var(--text-huge);
 }
 
 h1 strong {
     font-weight: bold;
-    font-size: var(--text-mega); /* Adjust the divisor to fit your needs */
-    text-align: justify;
+    font-size: min(16vw, var(--text-ultra)); /* Adjust the divisor to fit your needs */
+    text-align: left;
     display: flex;
     width: 50%;
     letter-spacing: -0.1em;
-    line-height: 0.8;
+    line-height: 0.9;
     margin: var(--space-reduced) 0;
 }
 
