@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "npx @11ty/eleventy --serve --formats=md,webp,jpg,jpeg,gif,svg,html,css",
-    "build": "npx @11ty/eleventy --formats=md,webp,jpg,jpeg,gif,svg,html,css"
+    "build": "npx @11ty/eleventy --formats=md,webp,jpg,jpeg,gif,png,svg,html,css"
   },
   "keywords": [],
   "author": "",
