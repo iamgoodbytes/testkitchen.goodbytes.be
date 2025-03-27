@@ -11,7 +11,7 @@
     {% if id and pagetype == 'experiment' %}
         {% assign og_url = "https://testkitchen.goodbytes.be/experiments/images/" | append: id | append: "_og.jpg" %}
     {% else %}
-        {% assign og_url = "https://testkitchen.goodytes.be/images/og.png" %}
+        {% assign og_url = "https://testkitchen.goodbytes.be/images/og.png" %}
     {% endif %}
 
     <meta property="og:title" content="{{ title | default: "Oui Chef" }} — GoodBytes' tɛst kɪtʃɪn" />
