@@ -3,7 +3,7 @@ pagetype: experiment
 id: "005"
 title: what if pi equals four
 date: 2025-03-28
-spotify_pairing: 3O2WeappXKECIdok4WXfnl
+spotify_pairing: 3JS3uZ6rk1q2ZrsccN665t
 url_live: https://genuary17.vercel.app/
 url_code: 
 tags: 
