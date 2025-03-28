@@ -18,7 +18,7 @@
     --text-giant:   1.953em;
     --text-mega:    2.441em;
     --text-ultra:   3.052em;    
-    --text-monster: calc(100vw / 10);
+    --text-monster: min(5em, calc(100vw / 10));
 
     /* Black shades - from lightest to darkest */
     --black-100: rgb(100, 100, 100);  /* subtle */
@@ -149,7 +149,7 @@ h2 {
     background-size: cover;
     background-position: center center;
     color: white;
-    
+    margin-top: var(--space-ultra);    
 }
 
 /* Add overlay with blend mode */
@@ -224,6 +224,7 @@ h2 {
 
 .experiment--details {
     padding: var(--space-giant) 0;
+    margin-bottom: 8em;
 }
 
 .grid {
@@ -243,19 +244,26 @@ h2 {
     }
 }
 
-.actions a {
-    color: var(--color-red);
-    text-decoration: none;
-    font-weight: bold;
+.actions--navigate {
+    background-color: var(--color-red);        
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 0 var(--space-base );
+    z-index: 9999;
 }
 
-.actions--navigate {
-    padding: var(--space-ultra) 0;
+.actions--navigate a {
+    color: var(--color-offwhite);
+    text-decoration: none;
+    font-weight: bold;
 }
 
 .actions--navigate nav {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     font-size: var(--text-monster);
 }
 
@@ -269,6 +277,9 @@ h2 {
     border-bottom: 1px solid var(--black-100);
     padding-bottom: var(--space-giant);
     align-items: center;
+
+    margin: var(--space-giant) 0;
+
 }
 
 .music-pairing h4 {

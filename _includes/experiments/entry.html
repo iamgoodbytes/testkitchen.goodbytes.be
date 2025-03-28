@@ -16,9 +16,9 @@ layout: layout.html
         <a class="link--live" href="{{ url_live }}" target="_blank">Taste a live demo</a>
     {% endif %}
   </figure>
-
-  
 </main>
+
+
 
 <section class="experiment--details">
   
@@ -48,6 +48,8 @@ layout: layout.html
     </script>
   {% endif %}
 
+
+
   <div class="experiment--content grid">
     <div class="col1">
       <h3>What's this</h3>
@@ -56,11 +58,8 @@ layout: layout.html
     <div class="col2">{{ content }}</div>
   </div>
 
-      
-
-  
+    
 </section>
-
 
 
 <div class="actions actions--navigate">
@@ -68,8 +67,27 @@ layout: layout.html
   {% assign nextPost = collections.experiment | getNextCollectionItem %}
   {% if previousPost or nextPost %}
     <nav>
-        <div>{% if previousPost %}<a href="{{ previousPost.url }}">← prev</a>{% endif %}</div>
-        <div>{% if nextPost %}<a href="{{ nextPost.url }}">next →</a>{% endif %}</div>
-    </nav>
+          <div>{% if previousPost %}<a href="{{ previousPost.url }}">&#9664; PREV</a>{% endif %}</div>
+          <div>{% if nextPost %}<a href="{{ nextPost.url }}">NEXT &#9654;</a>{% endif %}</div>
+        </nav>
   {% endif %}
 </div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", (event) => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.from(".actions--navigate", {
+      scrollTrigger: {
+        trigger: ".experiment--details",
+        start: "bottom bottom-=100",  // 200px from bottom of viewport
+        toggleActions: "play reverse play reverse", // Play forward, reverse when scrolling back
+        
+      },
+      bottom: -200,
+      opacity: 0,    // Start fully transparent
+      duration: 0.5, // Animation duration
+      ease: "power2.out"
+    });
+  });
+</script>
