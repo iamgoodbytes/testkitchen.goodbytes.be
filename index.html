@@ -12,7 +12,9 @@ layout: layout.html
     
 </div>
 
-
+<div class="custom-cursor">
+    <img src="/images/chef.webp" alt="Kitchen knife cursor">
+</div>
 
 
 <script>    
@@ -22,4 +24,48 @@ layout: layout.html
             this.classList.add('transition-experiment-img');
         });
     });
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const logo = document.querySelector('h1'); // Or your logo selector
+        const customCursor = document.querySelector('.custom-cursor');
+        
+        // Hide cursor initially
+        gsap.set(customCursor, { opacity: 0., scale: 0.7 });
+        
+        // Set up the cursor follower with GSAP
+        const cursorFollower = (e) => {
+          gsap.to(customCursor, {
+            duration: 0.4,
+            x: e.clientX,
+            y: e.clientY,
+            ease: "power2.out"
+          });
+        };
+        
+        // Show cursor on hover
+        logo.addEventListener('mouseenter', () => {
+          document.body.style.cursor = 'none';
+          gsap.to(customCursor, { 
+            duration: 0.3, 
+            opacity: 1, 
+            scale: 1,
+            rotation: 15,
+            ease: "back.out(1.7)" 
+          });
+          window.addEventListener('mousemove', cursorFollower);
+        });
+        
+        // Hide cursor when leaving
+        logo.addEventListener('mouseleave', () => {
+          document.body.style.cursor = 'auto';
+          gsap.to(customCursor, { 
+            duration: 0.3, 
+            opacity: 0, 
+            scale: 0.7,
+            rotation: 0,
+            ease: "power1.in" 
+          });
+          window.removeEventListener('mousemove', cursorFollower);
+        });
+      });
 </script>
