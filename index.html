@@ -4,7 +4,8 @@ layout: layout.html
 
 <h2>Experiments</h2>
 <div class="experiments"> 
-        {% for experiment in collections.experiment %}
+        {% assign experiments_sorted = collections.experiment | sort: "id" | reverse %}
+        {% for experiment in experiments_sorted %}
         <article class="experiment">
              <a href="{{ experiment.url }}"><img class="" src="/experiments/images/{{ experiment.data.id }}_small.webp" alt="{{ experiment.data.title }}"></a>
         </article>
