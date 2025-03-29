@@ -34,10 +34,19 @@ layout: layout.html
         
         // Set up the cursor follower with GSAP
         const cursorFollower = (e) => {
+          // Calculate rotation based on horizontal position
+          // Map x position (0 to window.innerWidth) to rotation (-30 to 30 degrees)
+          const rotationDegree = gsap.utils.mapRange(
+            0, window.innerWidth,   // Input range: screen width
+            -30, 30,                // Output range: rotation degrees
+            e.clientX               // Current position
+          );
+          
           gsap.to(customCursor, {
             duration: 0.4,
             x: e.clientX,
             y: e.clientY,
+            rotation: rotationDegree, // Dynamic rotation based on x position
             ease: "power2.out"
           });
         };
