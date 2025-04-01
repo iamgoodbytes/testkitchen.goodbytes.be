@@ -5,7 +5,9 @@
 :root {
     /* Brutalist font stack - emphasizing monospace and system fonts */
     --font-stack-brutal: "Unbounded", sans-serif;
-    --font-stack-body: "Space Grotesk", system-ui, sans-serif;
+    --font-stack-body: "Space Grotesk", system-ui, sans-serif;  
+    --font-stack-meinily: 'Meinily', sans-serif;  
+
 
     /* Type Scale - 1.25 ratio */
     --text-micro:   0.41em;
@@ -30,7 +32,7 @@
     --color-red: #FF1C00;
     --color-yellow: #FFD700;
     --color-pink: #FF0098;
-    --color-pink-light: #D8D8D8;
+    --color-gray-light: #D8D8D8;
     --color-blue: #50E3C2;
     --color-offblack: #191919;
     --color-bluelink: #020e78;
@@ -51,10 +53,11 @@
 
 body {
     padding: 1em;
-    font-family:var(--font-stack-body);
+    font-family:var(--font-stack-meinily);
     background-color: var(--color-offwhite);
     color: var(--black-700);
     font-size: calc(0.5vw + 1em);
+    line-height: 1.25;
 }
 
 img {
@@ -65,6 +68,16 @@ h1, h2, h3, h4 {
     text-transform: uppercase;
     font-family:var(--font-stack-brutal);
     letter-spacing: -0.05em;
+}
+
+h5 {
+    font-family:var(--font-stack-meinily);
+    font-size: var(--text-small);
+    font-weight: normal;
+    color: var(--black-100);
+    text-transform: uppercase;
+    margin: 0;
+    padding: 0;
 }
 
 h2, h3, h4 {
@@ -111,11 +124,19 @@ h1 strong {
 
 
 h1 span {
-    font-weight: normal;
+    font-weight: 600;
 }
 
 h1 em {
     font-size: var(--text-small)
+}
+
+h1 div {
+    font-family: var(--font-stack-meinily);
+    font-size: var(--text-large);    
+    font-weight: 700;
+    text-align: left;
+    text-indent: 2em;
 }
 
 h2 {
@@ -144,12 +165,16 @@ h2 {
 
 .experiment--entry {
     position: relative;
-    padding: 2em;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
     color: white;
     margin-top: var(--space-ultra);    
+    min-height: 30em;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 /* Add overlay with blend mode */
@@ -197,19 +222,9 @@ h2 {
 .experiment--entry h3 {
     mix-blend-mode: difference;
     text-align: center;
-    font-size: var(--text-giant);
-}
-
-.experiment--entry figure {
+    font-size: var(--text-mega);
+    font-family: var(--font-stack-meinily);
     margin: 0;
-    text-align: center;
-    padding-bottom: 5em;
-}
-
-.experiment--entry img {
-    padding: 0.3em;
-    background-color: var(--color-offwhite);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .experiment img {
@@ -227,6 +242,22 @@ h2 {
     margin-bottom: 8em;
 }
 
+.experiment--details figure {
+    padding: 0;
+    padding-right: 1em;
+    margin: 0;
+    float: left;
+    width: 200px;
+}
+
+.experiment--details h3 {
+    margin-top: var(--space-tiny);
+}
+
+.experiment--details p:first-of-type {
+    margin-top: 0;
+}
+
 .grid {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
@@ -234,21 +265,22 @@ h2 {
 
 .grid .col1 {
     grid-column: 1 / -1;
+
+    @media screen and (min-width: 768px) {
+        grid-column: 1 / 4;
+    }
 }
 
 .grid .col2 {
     grid-column: 1 / -1;
 
     @media screen and (min-width: 768px) {
-        grid-column: 3 / -1;
+        grid-column: 5 / 12;
     }
 }
 
 .actions--navigate {
     background-color: var(--color-red);        
-    position: fixed;
-    bottom: 0;
-    left: 0;
     width: 100%;
     padding: 0 var(--space-base );
     z-index: 9999;
@@ -267,24 +299,25 @@ h2 {
     font-size: var(--text-monster);
 }
 
+
+
 .music-pairing {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(12, 1fr);
     gap: 1em;
     justify-content: space-around;
-    border-top: 1px solid var(--black-100);
+    border-top: 1px solid var(--color-gray-light);
     padding-top: var(--space-giant);
-    border-bottom: 1px solid var(--black-100);
+    border-bottom: 1px solid var(--color-gray-light);
     padding-bottom: var(--space-giant);
     align-items: center;
-
     margin: var(--space-giant) 0;
-
 }
 
 .music-pairing h4 {
     margin-top: 0;
     margin-bottom: 0;
+    font-size: var(--text-reduced);
 }
 
 .credits {

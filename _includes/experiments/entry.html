@@ -5,29 +5,52 @@ layout: layout.html
 
 <main class="experiment--entry" style="background-image: url('/experiments/images/{{ id }}_large.webp')">
   <h3>{{ title }}</h3>
-
-  <figure>
-    <a href="{{ url_live }}">
-      <img class="transition-experiment-img" src="/experiments/images/{{ id }}_large.webp" alt="{{ title }}">
-    </a>
-    <figcaption>
-       
-    </figcaption>
-
-    {% if url_live %}
-        <a class="link--live" href="{{ url_live }}" target="_blank">Taste a live demo</a>
-    {% endif %}
-  </figure>
 </main>
 
 
 
 <section class="experiment--details">
   
+
+
+
+
+  <div class="experiment--content grid">
+    <div class="col1">
+      <h5>Main course</h5>
+      <h3>About this demo</h3>
+    </div>
+    <div class="col2">
+      
+        <figure>
+            <a href="{{ url_live }}">
+              <img class="transition-experiment-img" src="/experiments/images/{{ id }}_large.webp" alt="{{ title }}">
+            </a>
+        </figure>
+
+        {{ content }}
+
+        
+        
+        {% if url_live %}
+            <a class="link--live" href="{{ url_live }}" target="_blank">Taste a live demo</a>
+        {% endif %}
+      
+
+    </div>
+  </div>
+
+    
+
   {% if spotify_pairing %}
-  <div class="music-pairing">
-    <h4>This demo tastes better when accompanied by the following track</h4>
-    <iframe id="spotify-iframe"></iframe>
+  <div class="music-pairing grid">
+    <div class="col1">
+      <h5>Appetizer</h5>
+      <h3>This demo pairs well with the following track</h3>
+    </div>
+    <div class="col2">
+        <iframe id="spotify-iframe"></iframe>
+    </div>
   </div>  
 
     <script src="https://open.spotify.com/embed/iframe-api/v1" async></script>
@@ -50,18 +73,9 @@ layout: layout.html
     </script>
   {% endif %}
 
-
-
-  <div class="experiment--content grid">
-    <div class="col1">
-      <h3>What's this</h3>
-      <p></p>    
-    </div>
-    <div class="col2">{{ content }}</div>
-  </div>
-
-    
 </section>
+
+
 
 
 <div class="actions actions--navigate">
