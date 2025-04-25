@@ -3,7 +3,7 @@ layout: layout.html
 ---
 
 
-<main class="experiment--entry" style="background-image: url('/experiments/images/{{ id }}_large.webp')">
+<main class="experiment--entry transition-experiment-img" style="background-image: url('/experiments/images/{{ id }}_large.webp')">
   <h3>{{ title }}</h3>
 </main>
 
@@ -16,27 +16,42 @@ layout: layout.html
 
 
   <div class="experiment--content grid">
-    <div class="col1">
+    
+    <div class="col1 experiment--details__meta">
       <h5>Main course</h5>
       <h3>About this demo</h3>
+
+      <figure>
+        <a href="{{ url_live }}">
+          <img src="/experiments/images/{{ id }}_large.webp" alt="{{ title }}">
+        </a>
+      </figure>
+
+      <div class="grid tags">
+        <div class="col1">
+          <h6>tags</h6>
+        </div>
+        <div class="col2">
+          {% if tags %}
+              <h6>
+              {% for tag in tags %}
+              <span>{{ tag }}{% unless forloop.last %}, {% endunless %}</span>            
+              {%endfor %}
+              </h6>
+          {% else %}
+            <span>No tags</span>
+          {% endif %}
+        </div>
+      </div>
+
+
+      {% if url_live %}
+      <div><a class="link--live" href="{{ url_live }}" target="_blank">Taste a live demo</a></div>
+      {% endif %}
+
     </div>
-    <div class="col2">
-      
-        <figure>
-            <a href="{{ url_live }}">
-              <img class="transition-experiment-img" src="/experiments/images/{{ id }}_large.webp" alt="{{ title }}">
-            </a>
-        </figure>
-
+    <div class="col2 experiment--description">
         {{ content }}
-
-        
-        
-        {% if url_live %}
-            <a class="link--live" href="{{ url_live }}" target="_blank">Taste a live demo</a>
-        {% endif %}
-      
-
     </div>
   </div>
 
@@ -45,7 +60,7 @@ layout: layout.html
   {% if spotify_pairing %}
   <div class="music-pairing grid">
     <div class="col1">
-      <h5>Appetizer</h5>
+      <h5>Dessert</h5>
       <h3>This demo pairs well with the following track</h3>
     </div>
     <div class="col2">
@@ -70,6 +85,8 @@ layout: layout.html
         // Create the controller which will handle the iframe creation
         IFrameAPI.createController(element, options, callback);
       };
+
+     
     </script>
   {% endif %}
 
@@ -83,27 +100,42 @@ layout: layout.html
   {% assign nextPost = collections.experiment | getNextCollectionItem %}
   {% if previousPost or nextPost %}
     <nav>
-          <div>{% if previousPost %}<a href="{{ previousPost.url }}">&#9664; PREV</a>{% endif %}</div>
-          <div>{% if nextPost %}<a href="{{ nextPost.url }}">NEXT &#9654;</a>{% endif %}</div>
-        </nav>
+          <div class="prev">
+            {% if previousPost %}
+              <a href="{{ previousPost.url }}">&#9664;</a>
+              <a href="{{ previousPost.url }}"><img src="/experiments/images/{{ previousPost.data.id}}_small.webp" alt="Previous demo"></a>
+            {% endif %}
+          </div>
+                      
+          <div class="next">
+            {% if nextPost %}
+              <a href="{{ nextPost.url }}"><img src="/experiments/images/{{ nextPost.data.id}}_small.webp" alt="next demo"></a>
+              <a href="{{ nextPost.url }}" style="transform: scaleX(-1);display: inline-block;">&#9664;</a>
+            {% endif %}
+          </div>
+      </nav>
   {% endif %}
 </div>
 
-<script>
-  document.addEventListener("DOMContentLoaded", (event) => {
-    gsap.registerPlugin(ScrollTrigger);
 
-    gsap.from(".actions--navigate", {
-      scrollTrigger: {
-        trigger: ".experiment--details",
-        start: "bottom bottom-=100",  // 200px from bottom of viewport
-        toggleActions: "play reverse play reverse", // Play forward, reverse when scrolling back
-        
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const credits = document.querySelector(".credits");
+    if (!credits) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+            gsap.to(".credits", { opacity: 0, duration: 0.5, zIndex: -1 });
+          } else {
+            gsap.to(".credits", { opacity: 1, duration: 0.5, zIndex: 9999 });
+          }
+        });
       },
-      bottom: -200,
-      opacity: 0,    // Start fully transparent
-      duration: 0.5, // Animation duration
-      ease: "power2.out"
-    });
+      { threshold: 1.0 }
+    );
+
+    observer.observe(document.querySelector("footer"));
   });
 </script>

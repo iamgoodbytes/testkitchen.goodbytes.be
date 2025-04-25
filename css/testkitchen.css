@@ -49,6 +49,7 @@
     --space-giant:   1.953em;
     --space-mega:    2.441em;
     --space-ultra:   3.052em;
+    --space-monster: calc(var(--space-ultra) * 2);
 }
 
 body {
@@ -175,6 +176,8 @@ h2 {
     display: flex;
     flex-direction: column;
     justify-content: center;
+
+    
 }
 
 /* Add overlay with blend mode */
@@ -205,19 +208,14 @@ h2 {
     z-index: 2;
 }
 
-.experiment--entry a.link--live {
-    text-decoration: none;
-    font-weight: bold;
-    font-size: var(--text-reduced);
-    position: absolute;
-    bottom: 0em;
-    right: 0em;
-    background-color: var(--color-red);
-    color: var(--color-offwhite);
-    padding: 0.5em 1em;
+.link--live {
+    display: inline-block;
+    margin-top: var(--space-large);
+    font-size: var(--text-small);
+    border: 1px solid var(--color-red);
+    padding: var(--space-small) var(--space-base);
     border-radius: 0.5em;
 }
-
 
 .experiment--entry h3 {
     mix-blend-mode: difference;
@@ -225,6 +223,10 @@ h2 {
     font-size: var(--text-mega);
     font-family: var(--font-stack-meinily);
     margin: 0;
+}
+
+.experiment--description{
+    padding-top: var(--space-large);
 }
 
 .experiment img {
@@ -237,17 +239,22 @@ h2 {
     mix-blend-mode: normal;
 }
 
+.experiment--content {
+    padding: var(--space-monster) 0;
+    border-top: 1px solid var(--color-gray-light);
+    border-bottom: 1px solid var(--color-gray-light);
+}
+
 .experiment--details {
-    padding: var(--space-giant) 0;
-    margin-bottom: 8em;
+    padding: var(--space-monster) 0;
 }
 
 .experiment--details figure {
     padding: 0;
-    padding-right: 1em;
     margin: 0;
-    float: left;
+    margin-bottom: var(--space-small);
     width: 200px;
+    display: grid;
 }
 
 .experiment--details h3 {
@@ -258,13 +265,54 @@ h2 {
     margin-top: 0;
 }
 
+.experiment--details__meta {
+
+}
+
+.tags h6 {
+    font-size: var(--text-small);
+    margin: 0;
+    padding: 0;
+}
+
+.tags span {
+    
+    font-weight: normal;
+    color: var(--black-200);
+    display: inline-block;
+}
+
+.tags {
+    margin-bottom: var(--space-small);
+}
+
+.grid.tags {
+    @media screen and (min-width: 768px) {
+        grid-template-columns: auto 1fr;
+        gap: 1em;
+    }
+}
+
+.tags.grid .col1 {
+    @media screen and (min-width: 768px) {
+        grid-column: auto;
+    }
+}
+
+.tags.grid .col2 {
+    @media screen and (min-width: 768px) {
+        
+    }
+}
+
 .grid {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
+    
 }
 
 .grid .col1 {
-    grid-column: 1 / -1;
+    grid-column: 1 / -1;  
 
     @media screen and (min-width: 768px) {
         grid-column: 1 / 4;
@@ -273,33 +321,47 @@ h2 {
 
 .grid .col2 {
     grid-column: 1 / -1;
-
+    
+ 
     @media screen and (min-width: 768px) {
-        grid-column: 5 / 12;
+        grid-column: 6 / -1;
     }
 }
 
 .actions--navigate {
-    background-color: var(--color-red);        
     width: 100%;
-    padding: 0 var(--space-base );
     z-index: 9999;
 }
 
 .actions--navigate a {
-    color: var(--color-offwhite);
+    color: var(--color-gray-light);        
     text-decoration: none;
     font-weight: bold;
+    font-family: var(--font-stack-brutal);
 }
 
 .actions--navigate nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: var(--text-monster);
+    font-size: var(--text-huge);
+    text-transform: uppercase;
 }
 
 
+.actions--navigate .prev, .actions--navigate .next {
+    display: flex;
+    align-items: center;        /* Center items vertically within each group */
+    
+}
+
+.actions--navigate nav img {
+    max-width: 10vw;
+    display: block;            /* Remove inline gap */
+    object-fit: contain;   
+    filter: grayscale(100%);
+    margin: 0 var(--space-small);
+}
 
 .music-pairing {
     display: grid;
@@ -307,11 +369,11 @@ h2 {
     gap: 1em;
     justify-content: space-around;
     border-top: 1px solid var(--color-gray-light);
-    padding-top: var(--space-giant);
+    padding-top: var(--space-ultra);
     border-bottom: 1px solid var(--color-gray-light);
-    padding-bottom: var(--space-giant);
+    padding-bottom: var(--space-ultra);
     align-items: center;
-    margin: var(--space-giant) 0;
+    margin: var(--space-ultra) 0;
 }
 
 .music-pairing h4 {
