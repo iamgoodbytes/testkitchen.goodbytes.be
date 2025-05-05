@@ -3,8 +3,8 @@ pagetype: experiment
 id: "007"
 title: marrakesh mirage
 date: 2025-04-25
-spotify_pairing: 
-url_live: https://mowna.org
+spotify_pairing: 4VhGKuG1JlmBEQtNSuk1mv
+url_live: https://objkt.com/tokens/KT1VWABvrqGN4SwJL1VBu79LKRS4RDw8d5QE/12
 url_code: 
 tags: 
     - shader
