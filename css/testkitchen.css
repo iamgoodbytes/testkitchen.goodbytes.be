@@ -6,8 +6,7 @@
     /* Brutalist font stack - emphasizing monospace and system fonts */
     --font-stack-brutal: "Unbounded", sans-serif;
     --font-stack-body: "Space Grotesk", system-ui, sans-serif;  
-    --font-stack-meinily: 'Meinily', sans-serif;  
-
+    --font-stack-serif: 'Noto Serif Toto', sans-serif;
 
     /* Type Scale - 1.25 ratio */
     --text-micro:   0.41em;
@@ -54,7 +53,7 @@
 
 body {
     padding: 1em;
-    font-family:var(--font-stack-meinily);
+    font-family:var(--font-stack-serif);
     background-color: var(--color-offwhite);
     color: var(--black-700);
     font-size: calc(0.5vw + 1em);
@@ -72,7 +71,7 @@ h1, h2, h3, h4 {
 }
 
 h5 {
-    font-family:var(--font-stack-meinily);
+    font-family:var(--font-stack-serif);
     font-size: var(--text-small);
     font-weight: normal;
     color: var(--black-100);
@@ -133,7 +132,7 @@ h1 em {
 }
 
 h1 div {
-    font-family: var(--font-stack-meinily);
+    font-family: var(--font-stack-serif);
     font-size: var(--text-large);    
     font-weight: 700;
     text-align: left;
@@ -221,7 +220,7 @@ h2 {
     mix-blend-mode: difference;
     text-align: center;
     font-size: var(--text-mega);
-    font-family: var(--font-stack-meinily);
+    font-family: var(--font-stack-serif);
     margin: 0;
 }
 
@@ -368,12 +367,12 @@ h2 {
     grid-template-columns: repeat(12, 1fr);
     gap: 1em;
     justify-content: space-around;
-    border-top: 1px solid var(--color-gray-light);
+    
     padding-top: var(--space-ultra);
     border-bottom: 1px solid var(--color-gray-light);
     padding-bottom: var(--space-ultra);
     align-items: center;
-    margin: var(--space-ultra) 0;
+    margin-bottom: var(--space-ultra);
 }
 
 .music-pairing h4 {
