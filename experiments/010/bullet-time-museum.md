@@ -3,7 +3,7 @@ pagetype: experiment
 id: "010"
 title: bullet time museum
 date: 2025-05-26
-spotify_pairing: 
+spotify_pairing: 1V7UXCWw70Eq19AjcALe0R
 url_live: https://slimshader009.vercel.app/
 url_code: 
 tags: 
