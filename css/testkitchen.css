@@ -184,7 +184,7 @@ h2 {
     content: '';
     position: absolute;
     inset: 0;
-    mix-blend-mode: difference;
+    mix-blend-mode: multiply;
     background-color: rgba(255, 255, 255, 0.95);
     z-index: 1;
 }
@@ -194,12 +194,10 @@ h2 {
     content: '';
     position: absolute;
     inset: 0;
-    backdrop-filter: 
-        grayscale(100%)
-        contrast(1.0)
-        brightness(1.2);
+    transition: backdrop-filter 0.4s ease;
     z-index: 0;
 }
+
 
 /* Keep content above effects */
 .experiment--entry > * {
