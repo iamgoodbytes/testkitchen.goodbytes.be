@@ -163,6 +163,8 @@ h2 {
     width: 100%;
 }
 
+
+
 .experiment--entry {
     position: relative;
     background-repeat: no-repeat;
@@ -174,9 +176,7 @@ h2 {
 
     display: flex;
     flex-direction: column;
-    justify-content: center;
-
-    
+    justify-content: center;    
 }
 
 /* Add overlay with blend mode */

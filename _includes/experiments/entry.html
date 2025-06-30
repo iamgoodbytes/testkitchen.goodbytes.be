@@ -3,7 +3,7 @@ layout: layout.html
 ---
 
 
-<main class="experiment--entry transition-experiment-img" style="background-image: url('/experiments/images/{{ id }}_large.webp')">
+<main class="lazy experiment--entry transition-experiment-img" style="background-image: url('/experiments/images/{{ id }}_large.webp')">
   <h3>{{ title }}</h3>
 </main>
 
@@ -138,4 +138,8 @@ layout: layout.html
 
     observer.observe(document.querySelector("footer"));
   });
+
+
 </script>
+
+
