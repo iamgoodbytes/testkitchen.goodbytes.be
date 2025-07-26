@@ -17,4 +17,4 @@ Once applied, I wanted to make it feel more like some kind of a festival website
 
 For reasons unknown to me or simply because I grew up back then, I tend to gravitate to color palettes that are reminiscent of the 90s and often contain lots of neon.
 
-Photo credits by [sean tarrant](https://poly.pizza/u/Sean%20Tarrant)) on [Poly Pizza](https://poly.pizza/m/dzbwWVcvygi).
+Photo credits by [sean tarrant](https://poly.pizza/u/Sean%20Tarrant) on [Poly Pizza](https://poly.pizza/m/dzbwWVcvygi).
