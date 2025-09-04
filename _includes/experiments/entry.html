@@ -142,4 +142,17 @@ layout: layout.html
 
 </script>
 
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const entry = document.querySelector('.experiment--entry');
+    const urlLive = "{{ url_live }}";
+    if (entry && urlLive) {
+      entry.style.cursor = "pointer";
+      entry.addEventListener("click", () => {
+        window.location.href = urlLive;
+      });
+    }
+  });
+</script>
+
 
