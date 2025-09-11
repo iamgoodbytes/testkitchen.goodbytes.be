@@ -1,3 +1,4 @@
 node_modules/
 _site/
 experiments/.DS_Store
+.DS_Store
