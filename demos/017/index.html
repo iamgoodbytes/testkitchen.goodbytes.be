@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>testkitchen.goodbytes.be</title>
+    <style>
+      body {
+        margin: 0;
+        overflow: hidden;
+        font-family: 'Arial Black', Arial, sans-serif;
+      }
+      
+      #app {
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+      }
+      
+      canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+      }
+      
+      #hope-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 12vw;
+        font-weight: 900;
+        letter-spacing: 0.2em;
+        color: white;
+        text-align: center;
+        pointer-events: none;
+        z-index: 10;
+        
+        /* Blend modes for interaction with WebGL */
+        mix-blend-mode: difference;
+        
+        /* Text styling */
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        
+        /* Animation */
+        animation: pulse 4s ease-in-out infinite alternate;
+      }
+      
+      @keyframes pulse {
+        0% {
+          transform: translate(-50%, -50%) scale(1);
+          opacity: 0.8;
+        }
+        100% {
+          transform: translate(-50%, -50%) scale(1.05);
+          opacity: 1;
+        }
+      }
+      
+      /* Alternative blend modes you can try */
+      .blend-multiply { mix-blend-mode: multiply; }
+      .blend-screen { mix-blend-mode: screen; }
+      .blend-overlay { mix-blend-mode: overlay; }
+      .blend-soft-light { mix-blend-mode: soft-light; }
+      .blend-hard-light { mix-blend-mode: hard-light; }
+      .blend-color-dodge { mix-blend-mode: color-dodge; }
+      .blend-color-burn { mix-blend-mode: color-burn; }
+      .blend-exclusion { mix-blend-mode: exclusion; }
+      .blend-hue { mix-blend-mode: hue; }
+      .blend-saturation { mix-blend-mode: saturation; }
+      .blend-color { mix-blend-mode: color; }
+      .blend-luminosity { mix-blend-mode: luminosity; }
+
+      /* Footer styles */
+      #goodbytes-footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100vw;
+        text-align: center;
+        padding: 12px 0;
+        font-size: 1.1em;
+        z-index: 100;
+        color: #fff;
+        letter-spacing: 0.1em;
+        pointer-events: none;
+        mix-blend-mode: difference;
+        opacity: 0.8;
+      }
+    </style>
+    <script type="module" crossorigin src="./assets/index-DvrwSlig.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-ZAUzx738.css">
+  </head>
+  <body>
+    <div id="app">
+      <div id="hope-text">STAY<br>WEIRD</div>
+    </div>
+    <footer>
+      <div class="credits">
+          <a href="https://www.goodbytes.be/"><img class="credits__avatar" src="https://learnjs.goodbytes.be/images/goodbytes.jpg" alt="GoodBytes — Web Developer"></a>
+          <p class="credits__text">Created by your coding friend GoodBytes.be</p>
+      </div>       
+    </footer>
+
+  </body>
+</html>
