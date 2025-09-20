@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>testkitchen.goodbytes.be</title>
+    <style>
+      .emoji-trail {
+        mix-blend-mode: difference;
+        z-index: 1000 !important;
+        position: fixed;
+        pointer-events: none;
+        user-select: none;
+      }
+      body {
+        margin: 0;
+        overflow: hidden;
+        font-family: 'Arial Black', Arial, sans-serif;
+      }
+      
+      #app {
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+      }
+      
+      canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+      }
+      #emoji-diff {
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 18vw;
+        z-index: 10;
+        mix-blend-mode: difference;
+        pointer-events: none;
+        user-select: none;
+        color: white;
+        text-align: center;
+        font-weight: bold;
+        font-family: 'Impact', 'Arial Black', sans-serif;
+      }
+    </style>
+    <script type="module" crossorigin src="./assets/index-xjNYPeo5.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-ZAUzx738.css">
+  </head>
+  <body>
+  <div id="app"></div>
+    <footer>
+      <div class="credits">
+          <a href="https://www.goodbytes.be/"><img class="credits__avatar" src="https://learnjs.goodbytes.be/images/goodbytes.jpg" alt="GoodBytes — Web Developer"></a>
+          <p class="credits__text">Created by your coding friend GoodBytes.be</p>
+      </div>       
+    </footer>
+
+  </body>
+</html>
