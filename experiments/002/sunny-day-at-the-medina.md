@@ -4,7 +4,7 @@ id: "002"
 title: sunny day at the medina
 date: 2025-03-14
 spotify_pairing: 3znFigZPaEXcsgh8zbslHz
-url_live: https://shady-002.vercel.app/
+url_live: /demos/002/
 url_code: 
 tags: 
   - shader
