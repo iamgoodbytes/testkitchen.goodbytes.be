@@ -156,7 +156,6 @@ h2 {
 }
 
 .experiment {
-    background-color: red;
 }
 
 .experiment img {
@@ -177,7 +176,7 @@ h2 {
     color: white;
     margin-top: var(--space-ultra);    
     height: 100%;
-
+    min-height: 40vh;
     display: flex;
     flex-direction: column;
     justify-content: center;    
