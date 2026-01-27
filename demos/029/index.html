@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Life is a circle — GoodBytes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap" rel="stylesheet">
+
+    <script type="module" crossorigin src="./assets/index-C8DGUWiZ.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-Cxy9SHpX.css">
+  </head>
+
+  <body>
+  
+
+  <div id="app"></div>
+
+  <!-- Drone Scanner HUD Overlay -->
+  <div class="hud-overlay">
+    <!-- Corner brackets -->
+    <div class="hud-corner hud-corner--tl"></div>
+    <div class="hud-corner hud-corner--tr"></div>
+    <div class="hud-corner hud-corner--bl"></div>
+    <div class="hud-corner hud-corner--br"></div>
+    
+    <!-- Top bar -->
+    <div class="hud-top">
+      <span class="hud-label">SCAN</span>
+      <span class="hud-label">LIFE</span>
+      <span class="hud-value">T · <span id="hud-time" class="hud-highlight">00:00:00</span></span>
+      <span class="hud-value" id="hud-frame">F.0000</span>
+    </div>
+    
+    <!-- Left panel -->
+    <div class="hud-left">
+      <div class="hud-box">
+        <span id="hud-temp" class="hud-temp">29°</span>
+      </div>
+      <div class="hud-label-small">ENTROPY</div>
+      <div class="hud-coords">
+        <span id="hud-x">X.000</span>
+        <span id="hud-y">Y.000</span>
+        <span id="hud-z" class="hud-highlight">Z.000</span>
+      </div>
+    </div>
+    
+    <!-- Right panel -->
+    <div class="hud-right">
+      <div class="hud-compass">
+        <span id="hud-particles">150K</span>
+        <span class="hud-dim">PTS</span>
+      </div>
+      <div class="hud-stats">
+        <div><span class="hud-label-small" id="hud-fps">60</span> FPS</div>
+        <div class="hud-highlight" id="hud-dist">0.00</div>
+        <div class="hud-dim" id="hud-vel">VEL</div>
+      </div>
+    </div>
+    
+    <!-- Philosophical quote -->
+    <div class="hud-quote">
+      <div class="hud-quote-text">"This moment will never happen again"</div>
+      <div class="hud-quote-sub">MEMENTO MORI · <span id="hud-date"></span></div>
+    </div>
+    
+    <!-- Bottom bar -->
+    <div class="hud-bottom">
+      <div class="hud-bottom-left">
+        <span class="hud-label">EPHEMERAL</span>
+        <span class="hud-label hud-active">NOW</span>
+        <span class="hud-label">FINITE</span>
+      </div>
+      <div class="hud-center-marker">●</div>
+      <div class="hud-bottom-right">
+        <span class="hud-label">BREATH</span>
+        <span class="hud-label hud-active" id="hud-heartbeat">♥ 72</span>
+        <span class="hud-label">ALIVE</span>
+      </div>
+    </div>
+    
+    <!-- Scan line animation -->
+    <div class="hud-scanline"></div>
+    
+    <!-- Center reticle -->
+    <div class="hud-reticle"></div>
+  </div>
+
+  <!-- HUD Data Animation Script -->
+  <script>
+    let frameCount = 0;
+    let lastTime = performance.now();
+    
+    function updateHUD() {
+      frameCount++;
+      const now = new Date();
+      const currentTime = performance.now();
+      const delta = currentTime - lastTime;
+      lastTime = currentTime;
+      
+      // Time
+      document.getElementById('hud-time').textContent = 
+        now.toTimeString().split(' ')[0];
+      
+      // Date
+      document.getElementById('hud-date').textContent = 
+        now.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }).toUpperCase();
+      
+      // Frame counter
+      document.getElementById('hud-frame').textContent = 
+        'F.' + String(frameCount % 10000).padStart(4, '0');
+      
+      // Temperature (fluctuates)
+      const temp = 36.6 + Math.sin(frameCount * 0.02) * 0.4 + Math.random() * 0.2;
+      document.getElementById('hud-temp').textContent = temp.toFixed(1) + '°';
+      
+      // Coordinates (simulate drift)
+      document.getElementById('hud-x').textContent = 
+        'X.' + (Math.sin(frameCount * 0.01) * 50).toFixed(0).padStart(3, '0');
+      document.getElementById('hud-y').textContent = 
+        'Y.' + (Math.cos(frameCount * 0.013) * 50).toFixed(0).padStart(3, '0');
+      document.getElementById('hud-z').textContent = 
+        'Z.' + (Math.sin(frameCount * 0.017) * 30).toFixed(0).padStart(3, '0');
+      
+      // FPS
+      const fps = Math.round(1000 / delta);
+      document.getElementById('hud-fps').textContent = Math.min(fps, 120);
+      
+      // Heartbeat (pulses)
+      const heartRate = 68 + Math.sin(frameCount * 0.05) * 8 + Math.random() * 2;
+      document.getElementById('hud-heartbeat').textContent = '♥ ' + Math.round(heartRate);
+      
+      // Distance
+      const dist = (Math.sin(frameCount * 0.008) + 1) * 2.5;
+      document.getElementById('hud-dist').textContent = dist.toFixed(2);
+      
+      requestAnimationFrame(updateHUD);
+    }
+    
+    updateHUD();
+  </script>
+
+  
+    <footer>
+      <div class="credits">
+          <a href="https://www.goodbytes.be/"><img class="credits__avatar" src="https://learnjs.goodbytes.be/images/goodbytes.jpg" alt="GoodBytes — Web Developer"></a>
+          <p class="credits__text">Created by your coding friend GoodBytes.be</p>
+      </div>       
+    </footer>
+
+  </body>
+</html>
